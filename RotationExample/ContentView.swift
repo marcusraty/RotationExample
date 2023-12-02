@@ -82,7 +82,7 @@ struct SceneKitView: UIViewRepresentable {
             
             let rotationZ = simd_quaternion(zDiff, simd_float3(x: 0, y: 0, z: 1))
 
-            boxNode.simdOrientation =  combined * boxNode.simdOrientation
+            boxNode.simdOrientation =  rotationZ.inverse * combined * boxNode.simdOrientation
             
             print("Z of object after is ", boxNode.eulerAngles.z)
 
